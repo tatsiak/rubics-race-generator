@@ -20,6 +20,9 @@
       .side {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .spin {
         animation: spin 0.5s ease-in-out 1;
       }
       @keyframes spin {
@@ -31,7 +34,7 @@
         width: 40px;
         height: 40px;
         border: 3px solid black;
-        border-radius: 8px;
+        border-radius: 12px;
       }
 
       .red {
@@ -68,34 +71,29 @@
 
     <script>
       const generate = () => {
-        const tiles = document.querySelectorAll(".tile");
-        const colors = {
-          red: 4,
-          green: 4,
-          blue: 4,
-          white: 4,
-          orange: 4,
-          yellow: 4,
-        };
+        const side = document.querySelector(".side");
+        side.classList.add("spin");
+        const tiles = side.querySelectorAll(".tile");
+        const colors = {red: 4,green: 4,blue: 4,white: 4,orange: 4,yellow: 4};
 
-        tiles.forEach((tile) => {
-          const keys = Object.keys(colors);
-          const max = Math.max(...Object.values(colors));
-          const items = keys
-            .filter((key) => colors[key] === max)
-            .sort((a, b) => colors[b] - colors[a]);
+        setTimeout(() => {
+          tiles.forEach((tile) => {
+            const items = Object.keys(colors)
+              .filter((key) => colors[key])
+              .sort((a, b) => colors[b] - colors[a]);
 
-          const item = items[Math.floor(Math.random() * items.length)];
-          colors[item]--;
-          console.log("colors: ", colors);
-          console.log("item:", item);
-          tile.classList.add(item);
-        });
+            const item = items[Math.floor(Math.random() * items.length)];
+            colors[item]--;
+            tile.classList = `tile ${item}`;
+          });
+        }, 100);
+
+        setTimeout(() => side.classList.remove("spin"), 300);
       };
 
       generate();
-      
-      document.addEventListener("click", () => window.location.reload());
+
+      document.addEventListener("click", () => generate());
     </script>
   </body>
 </html>
