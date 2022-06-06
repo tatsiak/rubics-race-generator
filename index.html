@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rubic's Race Generator</title>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        cursor: pointer;
+      }
+      .side {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        animation: spin 0.5s ease-in-out 1;
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .tile {
+        width: 40px;
+        height: 40px;
+        border: 3px solid black;
+        border-radius: 8px;
+      }
+
+      .red {
+        background: #d11141;
+      }
+      .green {
+        background: #00b159;
+      }
+      .blue {
+        background: #00aedb;
+      }
+      .white {
+        background: white;
+      }
+      .orange {
+        background: #f37735;
+      }
+      .yellow {
+        background: #ffc425;
+      }
+    </style>
+
+    <div class="side">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+
+    <script>
+      const generate = () => {
+        const tiles = document.querySelectorAll(".tile");
+        const colors = {
+          red: 4,
+          green: 4,
+          blue: 4,
+          white: 4,
+          orange: 4,
+          yellow: 4,
+        };
+
+        tiles.forEach((tile) => {
+          const keys = Object.keys(colors);
+          const max = Math.max(...Object.values(colors));
+          const items = keys
+            .filter((key) => colors[key] === max)
+            .sort((a, b) => colors[b] - colors[a]);
+
+          const item = items[Math.floor(Math.random() * items.length)];
+          colors[item]--;
+          console.log("colors: ", colors);
+          console.log("item:", item);
+          tile.classList.add(item);
+        });
+      };
+
+      generate();
+      
+      document.addEventListener("click", () => window.location.reload());
+    </script>
+  </body>
+</html>
