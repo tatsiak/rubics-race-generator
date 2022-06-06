@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Rubic's Race Generator</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA+9JREFUWEftlm9MVWUcxz/PufcyUbc7KJEIDQwwGUgjGqhzJOLV3FSgyUCvvqFdLub6s7X+U60cC1ZtpdUgZyGyMrLJ2iwT3tTKdLFaytCNP0VR4A3xJgqXczlPu4fgcjkeWC9YvOB5+Zzv85zv+T3f3+c8ApD8j0OMG0iKXMCOlRHYLIGp4BgZlZxou0rXNZ8+qSQvgdSlSBGqE0MqWnMnDI4ghCA/P5+0tDTDp/X09FBbW4vPN7afbiBqkY2Wh1OxL7DcshaeGyrp71/genwESkUuKKEvn1h0+S/8T5/B5XJRXV1tWteamhpKS0uDBnJX2PlsZ9K0B+E41sb5zGUoe+8110nwFzfw0Qd1FBUVmera29tJTEwMGnCssPPpDAY217fxfeZyLHuMZZ14U8DArgaOf1hPYWGhqYGOjg4SEhLmDcyhCmTeuZgzzlXThjDryEUu3ReL4s4w1/n8+J0nqD70nt4JZqOlpYWMjLF99DYMdNXbW+LZlXIb1iktFuDAkZ+u8FRTN4TbsD63HlKiYAoHGPKj1f6I9mW7HrDGxkaSk5MNHvr6+nA6nTQ1NQUNjKtsijDsKyWo2hRYWpUx65NHQDMa1AVgFBYWZjCgqiqapk3MT5BQydgAGwrAYgtd5B+Brz5G+/k7nXButxuHw4GiKCE6r9dLZWUlra2tYAtDeagM4u75t8iTpFd7kccPIr39wQqI6OUoB0+DxXrrYxvxoZXlsG19ll5as9HV1aUDRhaUIYofM8/K+WZGX3NPOoL0bCwvHJ42hKPPF/Ns3iYqKipMdVJK7HY7N1wHEOu2mut6u9H2bZw3MF+BSV1w10qUNz83wmU8RpqG9kguuzdlU1dXZxouj8dDTEwMcveTsKPEPNQXzzH6ojMURMrWvYjcnUhrKAeEOoL84hha0ydYrVaqqqpMOVBeXq4TTiy2o7heRsYZ8S76e9EOv4Ls6TSScNo+nKWHQRLmuxC5hUhrKIyEqiJP1aGdOooNwTPhSayxRaBMYfGg9PPWcCffqP3cvtDKoQfjSVkSbiD2H4Mqj5/+hVbP0KQMxCejvH7SPANSQ9vvYFu/j1cXmv81vVIlx/stBzYuY1/GUtOanf39OpvrL/33NizpvMKj4XebEw5Ye+1r3t0eR8GqSHNkDwyTVnNh3sAcqoBIz0aZ8W9YREmnZ3YyIKJix+4DNuMNRq+TbwjNncO6m5J3Fq02Ddev2k3y/j7HE1l38FJ2rKmu8fIAe062h4JIrF6LeCAPOeVGpJOwuQHZ9oO+YHtYNGuskYb+HsTP0eHf6NaGCFzt9t8fTWpUuMFEgANvnP2TgWH/HCPhLJF2xm3/AcK3FR9KEMldAAAAAElFTkSuQmCC"
+    />
   </head>
 
   <body>
@@ -74,7 +80,14 @@
         const side = document.querySelector(".side");
         side.classList.add("spin");
         const tiles = side.querySelectorAll(".tile");
-        const colors = {red: 4,green: 4,blue: 4,white: 4,orange: 4,yellow: 4};
+        const colors = {
+          red: 4,
+          green: 4,
+          blue: 4,
+          white: 4,
+          orange: 4,
+          yellow: 4,
+        };
 
         setTimeout(() => {
           tiles.forEach((tile) => {
